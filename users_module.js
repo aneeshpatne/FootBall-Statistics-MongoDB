@@ -21,6 +21,12 @@ mongoose
     HTR: String,
   });
 const user = mongoose.model('fb2', userSchema);
+
+const userSchema1 = new mongoose.Schema({
+  Player_Name: String,
+  Type: String
+});
+const user1 = mongoose.model('fb3', userSchema);
 //console.log(user.find())
 //const user = new mongoose.model("student", userSchema);
 
@@ -28,6 +34,20 @@ const user = mongoose.model('fb2', userSchema);
 const express = require("express");
 const app = express();
 const router = express.Router();
+
+router.post("/20", async (req, res) => {
+  /** getting user email */
+  console.log(req.params.id);
+  console.log('module');
+  req_data2 = req.body;
+  console.log(req_data2.payload);
+  payload = req_data2.payload;
+  let search2 = await user1.find().exec();
+  //search1 = search1.slice(0,3);
+  console.log(search2);
+  res.send(search2);
+  
+});
 
 router.get("/:id", async (req, res) => {
   /** getting user email */
@@ -245,6 +265,32 @@ router.post("/16", async (req, res) => {
   //search1 = search1.slice(0,3);
   console.log(search1);
   res.send(search1);
+  
+});
+router.post("/17", async (req, res) => {
+  /** getting user email */
+  console.log(req.params.id);
+  console.log('module');
+  req_data1 = req.body;
+  console.log(req_data1.payload);
+  payload = req_data1.payload;
+  let search1 = await user.find().where('FTHG').gte(payload).limit(10).exec();
+  //search1 = search1.slice(0,3);
+  console.log(search1);
+  res.send(search1);
+  
+});
+router.post("/18", async (req, res) => {
+  /** getting user email */
+  console.log(req.params.id);
+  //console.log('module');
+  req_data1 = req.body;
+  console.log(req_data1.payload);
+  payload = req_data1.payload;
+  let search2 = await user.find().where('HTAG').gte(payload).limit(10).exec();
+  //search1 = search1.slice(0,3);
+  console.log(search2);
+  res.send(search2);
   
 });
 //router.route("/away").post(async (req, res) => {

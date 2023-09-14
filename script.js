@@ -1,6 +1,23 @@
 //http-server -o --cors
 api_url = "http://localhost:8080/user";
 
+function loadData1(records = []) {
+  console.log(records);
+  table_data = ``;
+  for (let i = 0; i < records.length; i++) {
+    // console.log(records[i].name);
+    table_data += `<tr>`;
+    table_data += `<td>${i + 1}</td>`;
+    
+    table_data += `<td>${records[i].Player_Name}</td>`;
+    table_data += `<td>${records[i].Type}</td>`;
+    table_data += `<td>
+    <a href='edit.html?id=${records[i]._id}'><button class="edit-row-btn"></button></a> | 
+    <button class= 'delete-row-btn'onclick='deleteData("${records[i]._id}","${records[i].HomeTeam}");'></button>
+    </td>`;
+    table_data += `</tr>`;
+  }
+}
 function loadData(records = []) {
   console.log(records);
   table_data = ``;
@@ -31,6 +48,58 @@ function loadData(records = []) {
   document.getElementById("table_data").innerHTML = table_data;
 }
 
+var input = document.getElementById("myInput1");
+input.addEventListener("keyup", ({key}) => {
+  if (key === "Enter") {
+    e = document.getElementById("myInput1");
+    console.log("HERE");
+    fetch('http://localhost:8080/user/17',{
+      method: 'POST',
+      headers : {'Content-Type': 'application/json'},
+      body:JSON.stringify({payload:e.value}),  
+    })
+    //fetch(api_url)
+    .then((response) => response.json())
+    .then((search) => {loadData(search);
+      console.log("here")
+
+       console.log(search);
+    
+      //console.log(data);
+      //location.reload()
+    });
+    
+    //console.log('Enter');
+      // Do work
+
+  }
+})
+var input1 = document.getElementById("myInput2");
+input1.addEventListener("keyup", ({key}) => {
+  if (key === "Enter") {
+    e = document.getElementById("myInput2");
+    console.log("HERE");
+    fetch('http://localhost:8080/user/18',{
+      method: 'POST',
+      headers : {'Content-Type': 'application/json'},
+      body:JSON.stringify({payload:e.value}),  
+    })
+    //fetch(api_url)
+    .then((response) => response.json())
+    .then((search3) => {loadData(search3);
+      console.log("here");
+    console.log(search3);
+    
+      //console.log(data);
+      //location.reload()
+    });
+    
+    //console.log('Enter');
+      // Do work
+
+  }
+})
+
 function getData() {
   fetch(api_url)
     .then((response) => response.json())
@@ -43,6 +112,25 @@ function searchData(){
     e = document.getElementById("myInput");
     console.log("HERE");
     fetch('http://localhost:8080/user/1',{
+      method: 'POST',
+      headers : {'Content-Type': 'application/json'},
+      body:JSON.stringify({payload:e.value}),  
+    })
+    //fetch(api_url)
+    .then((response) => response.json())
+    .then((search) => {loadData(search);
+      console.log("here")
+
+       console.log(search);
+    
+      //console.log(data);
+      //location.reload()
+    });
+  }
+  function playerinfo(){
+    e = document.getElementById("myInput");
+    console.log("HERE");
+    fetch('http://localhost:8080/user/20',{
       method: 'POST',
       headers : {'Content-Type': 'application/json'},
       body:JSON.stringify({payload:e.value}),  

@@ -89,7 +89,9 @@ th{
 }
 
 #btn-2 {
-    background-color: #d447aa;
+    margin-right: 20px;
+
+    background-color:rgb(184, 33, 234);
     color: white;
     padding: 5px 5px;
     text-align: center;
@@ -99,7 +101,8 @@ th{
     font-family: 'Montserrat', sans-serif;
   }
   #btn-1 {
-    background-color: #d447aa;
+    margin-right: 20px;
+    background-color:rgb(184, 33, 234);
     color: white;
     padding: 5px 5px;
     text-align: center;
@@ -174,10 +177,30 @@ th{
   .table-data{
       position: relative;
       margin-left: 25%;
-      margin-right: 25%;
-      
+      margin-right: 25%;  
+  }
+  /* Style the search field */
+#myInput {
+    padding: 10px;
+    font-size: 17px;
+    margin: auto;
+    border: 1px solid grey;
+    float: left;
+    width: 15%;
+    background: #f1f1f1;
+  }
+
   
-      
-      
-      
+  a:hover, a:active {
+    background-color:  rgb(184, 33, 234);
+    color: white;
+  }
+
+  #myInput1{
+ 
+    width: 40px;
+  }
+  #myInput2{
+ 
+    width: 40px;
   }

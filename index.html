@@ -17,15 +17,15 @@
     <div id="upper-header">
         <p>Football Statistics Application</p>
     </div>
-  
-<a href='add.html'>Add User</a>
+<button id="btn-1" onclick="location.href='add.html';">ADD USER</button>   
+
 <button id="btn-1" onclick=location.reload()>RESET</button> <br><br>
 <br><br>
 <input id="myInput" value="">
 <button id="btn-1" onclick=searchData()>HOME</button> 
 
 <button id="btn-2" onclick=searchDataAway()>AWAY</button> <br><br>
-
+<button id="btn-2" onclick=playerinfo()>PLAYER INFO</button> <br><br>
 </section>
 <br><br>
 <table border="1px">
@@ -44,7 +44,9 @@
     </th>
 
     <th>Full Time Home Team Goals
-      <button id="sort-name-btn" onclick=sortDataFTHG()></button> 
+      <button id="sort-name-btn" onclick=sortDataFTHG()><br><br>
+      </button> 
+      <input id="myInput1" value="">
     </th>
     <th> Full Time Away Team Goals
       <button id="sort-name-btn" onclick=sortDataFTAG()></button> 
@@ -52,6 +54,7 @@
     <th>  Full Time Result </th>
     <th>  Half Time Home Team Goals 
       <button id="sort-name-btn" onclick=sortDataHTHG()></button>
+      <input id="myInput2" value="">
     </th>
     <th>  Half Time Away Team Goals
       <button id="sort-name-btn" onclick=sortDataHTAG()></button> </th>
